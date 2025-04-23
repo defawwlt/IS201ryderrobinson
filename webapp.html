@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .game-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1>Guess the Number!</h1>
+    <p>Enter a number between 1 and 100:</p>
+    <input type="number" id="guess" min="1" max="100">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="feedback"></p>
+  </div>
+
+  <script>
+    // Generate a random number between 1 and 100
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    const feedback = document.getElementById("feedback");
+
+    function checkGuess() {
+      const userGuess = document.getElementById("guess").value;
+      if (userGuess == randomNumber) {
+        feedback.innerHTML = "Congratulations! You guessed it!";
+      } else if (userGuess > randomNumber) {
+        feedback.innerHTML = "Too high! Try again.";
+      } else {
+        feedback.innerHTML = "Too low! Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
